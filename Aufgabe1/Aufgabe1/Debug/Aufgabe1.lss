@@ -1,0 +1,424 @@
+
+Aufgabe1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000028  00800100  0000025c  000002f0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000025c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000004  00800128  00800128  00000318  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000318  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  000009e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000000c0  00000000  00000000  00000a70  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000006eb  00000000  00000000  00000b30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000001b0  00000000  00000000  0000121b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000004d0  00000000  00000000  000013cb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000009c  00000000  00000000  0000189c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000135  00000000  00000000  00001938  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000001f4  00000000  00000000  00001a6d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   8:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  10:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  14:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  18:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  1c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  20:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  2c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  34:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  38:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  3c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  48:	0c 94 7e 00 	jmp	0xfc	; 0xfc <__vector_18>
+  4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  50:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  54:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  58:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  5c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  60:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  64:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  68:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  6c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  70:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  74:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  78:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	d0 e1       	ldi	r29, 0x10	; 16
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_copy_data>:
+  88:	11 e0       	ldi	r17, 0x01	; 1
+  8a:	a0 e0       	ldi	r26, 0x00	; 0
+  8c:	b1 e0       	ldi	r27, 0x01	; 1
+  8e:	ec e5       	ldi	r30, 0x5C	; 92
+  90:	f2 e0       	ldi	r31, 0x02	; 2
+  92:	02 c0       	rjmp	.+4      	; 0x98 <__do_copy_data+0x10>
+  94:	05 90       	lpm	r0, Z+
+  96:	0d 92       	st	X+, r0
+  98:	a8 32       	cpi	r26, 0x28	; 40
+  9a:	b1 07       	cpc	r27, r17
+  9c:	d9 f7       	brne	.-10     	; 0x94 <__do_copy_data+0xc>
+
+0000009e <__do_clear_bss>:
+  9e:	11 e0       	ldi	r17, 0x01	; 1
+  a0:	a8 e2       	ldi	r26, 0x28	; 40
+  a2:	b1 e0       	ldi	r27, 0x01	; 1
+  a4:	01 c0       	rjmp	.+2      	; 0xa8 <.do_clear_bss_start>
+
+000000a6 <.do_clear_bss_loop>:
+  a6:	1d 92       	st	X+, r1
+
+000000a8 <.do_clear_bss_start>:
+  a8:	ac 32       	cpi	r26, 0x2C	; 44
+  aa:	b1 07       	cpc	r27, r17
+  ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
+  ae:	0e 94 ca 00 	call	0x194	; 0x194 <main>
+  b2:	0c 94 2c 01 	jmp	0x258	; 0x258 <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ba <getLEDs>:
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+	uint8_t j = 0;
+	while (i!=selmuster) {
+  ba:	88 23       	and	r24, r24
+  bc:	69 f0       	breq	.+26     	; 0xd8 <getLEDs+0x1e>
+volatile uint8_t blinkmuster = 0;
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+	uint8_t j = 0;
+  be:	70 e0       	ldi	r23, 0x00	; 0
+volatile uint8_t interruptCounter = 0;
+volatile uint8_t blinkmuster = 0;
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+  c0:	90 e0       	ldi	r25, 0x00	; 0
+	uint8_t j = 0;
+	while (i!=selmuster) {
+		j += muster[i];
+  c2:	21 e0       	ldi	r18, 0x01	; 1
+  c4:	31 e0       	ldi	r19, 0x01	; 1
+  c6:	f9 01       	movw	r30, r18
+  c8:	e9 0f       	add	r30, r25
+  ca:	f1 1d       	adc	r31, r1
+  cc:	e0 81       	ld	r30, Z
+  ce:	7e 0f       	add	r23, r30
+		i++;
+  d0:	9f 5f       	subi	r25, 0xFF	; 255
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+	uint8_t j = 0;
+	while (i!=selmuster) {
+  d2:	89 17       	cp	r24, r25
+  d4:	c1 f7       	brne	.-16     	; 0xc6 <getLEDs+0xc>
+  d6:	02 c0       	rjmp	.+4      	; 0xdc <getLEDs+0x22>
+volatile uint8_t blinkmuster = 0;
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+	uint8_t j = 0;
+  d8:	70 e0       	ldi	r23, 0x00	; 0
+volatile uint8_t interruptCounter = 0;
+volatile uint8_t blinkmuster = 0;
+uint8_t maxBlinks = 0;
+
+uint8_t getLEDs(uint8_t selmuster, uint8_t state, uint8_t *countInPattern) {
+	uint8_t i = 0;
+  da:	80 e0       	ldi	r24, 0x00	; 0
+	uint8_t j = 0;
+	while (i!=selmuster) {
+		j += muster[i];
+		i++;
+	}
+	*countInPattern = muster[--i];
+  dc:	81 50       	subi	r24, 0x01	; 1
+  de:	21 e0       	ldi	r18, 0x01	; 1
+  e0:	31 e0       	ldi	r19, 0x01	; 1
+  e2:	f9 01       	movw	r30, r18
+  e4:	e8 0f       	add	r30, r24
+  e6:	f1 1d       	adc	r31, r1
+  e8:	80 81       	ld	r24, Z
+  ea:	fa 01       	movw	r30, r20
+  ec:	80 83       	st	Z, r24
+	return muster[j+state];
+  ee:	27 0f       	add	r18, r23
+  f0:	31 1d       	adc	r19, r1
+  f2:	f9 01       	movw	r30, r18
+  f4:	e6 0f       	add	r30, r22
+  f6:	f1 1d       	adc	r31, r1
+}
+  f8:	80 81       	ld	r24, Z
+  fa:	08 95       	ret
+
+000000fc <__vector_18>:
+
+
+ISR(TIMER0_OVF_vect) {
+  fc:	1f 92       	push	r1
+  fe:	0f 92       	push	r0
+ 100:	0f b6       	in	r0, 0x3f	; 63
+ 102:	0f 92       	push	r0
+ 104:	11 24       	eor	r1, r1
+ 106:	2f 93       	push	r18
+ 108:	3f 93       	push	r19
+ 10a:	4f 93       	push	r20
+ 10c:	5f 93       	push	r21
+ 10e:	6f 93       	push	r22
+ 110:	7f 93       	push	r23
+ 112:	8f 93       	push	r24
+ 114:	9f 93       	push	r25
+ 116:	af 93       	push	r26
+ 118:	bf 93       	push	r27
+ 11a:	ef 93       	push	r30
+ 11c:	ff 93       	push	r31
+ 11e:	cf 93       	push	r28
+ 120:	df 93       	push	r29
+ 122:	0f 92       	push	r0
+ 124:	cd b7       	in	r28, 0x3d	; 61
+ 126:	de b7       	in	r29, 0x3e	; 62
+	uint8_t countInPattern = 0;
+ 128:	19 82       	std	Y+1, r1	; 0x01
+	if (++interruptCounter == interruptInterval) {
+ 12a:	80 91 2a 01 	lds	r24, 0x012A
+ 12e:	8f 5f       	subi	r24, 0xFF	; 255
+ 130:	80 93 2a 01 	sts	0x012A, r24
+ 134:	90 91 00 01 	lds	r25, 0x0100
+ 138:	89 17       	cp	r24, r25
+ 13a:	c1 f4       	brne	.+48     	; 0x16c <__vector_18+0x70>
+		interruptCounter=0;
+ 13c:	10 92 2a 01 	sts	0x012A, r1
+		//get the LED-Set and write it to PortB
+		PORTB = getLEDs(blinkmuster,state, &countInPattern);
+ 140:	80 91 29 01 	lds	r24, 0x0129
+ 144:	60 91 2b 01 	lds	r22, 0x012B
+ 148:	ae 01       	movw	r20, r28
+ 14a:	4f 5f       	subi	r20, 0xFF	; 255
+ 14c:	5f 4f       	sbci	r21, 0xFF	; 255
+ 14e:	0e 94 5d 00 	call	0xba	; 0xba <getLEDs>
+ 152:	85 b9       	out	0x05, r24	; 5
+		state++;
+ 154:	80 91 2b 01 	lds	r24, 0x012B
+ 158:	8f 5f       	subi	r24, 0xFF	; 255
+ 15a:	80 93 2b 01 	sts	0x012B, r24
+		if (state>countInPattern) state=0;
+ 15e:	90 91 2b 01 	lds	r25, 0x012B
+ 162:	89 81       	ldd	r24, Y+1	; 0x01
+ 164:	89 17       	cp	r24, r25
+ 166:	10 f4       	brcc	.+4      	; 0x16c <__vector_18+0x70>
+ 168:	10 92 2b 01 	sts	0x012B, r1
+			PORTA &=~(1<<PORTA0);		// LED off
+			PORTB |=(1<<PORTB0);		// LED on
+		}			
+		state=(state+1)%2;		// toggle internal state*/
+	}
+}
+ 16c:	0f 90       	pop	r0
+ 16e:	df 91       	pop	r29
+ 170:	cf 91       	pop	r28
+ 172:	ff 91       	pop	r31
+ 174:	ef 91       	pop	r30
+ 176:	bf 91       	pop	r27
+ 178:	af 91       	pop	r26
+ 17a:	9f 91       	pop	r25
+ 17c:	8f 91       	pop	r24
+ 17e:	7f 91       	pop	r23
+ 180:	6f 91       	pop	r22
+ 182:	5f 91       	pop	r21
+ 184:	4f 91       	pop	r20
+ 186:	3f 91       	pop	r19
+ 188:	2f 91       	pop	r18
+ 18a:	0f 90       	pop	r0
+ 18c:	0f be       	out	0x3f, r0	; 63
+ 18e:	0f 90       	pop	r0
+ 190:	1f 90       	pop	r1
+ 192:	18 95       	reti
+
+00000194 <main>:
+
+
+int main(void)
+{
+	// init
+   	DDRA  = 0x0F;		// set lowest bit of PORTA Output
+ 194:	8f e0       	ldi	r24, 0x0F	; 15
+ 196:	81 b9       	out	0x01, r24	; 1
+    PORTA = 0x00;		// all LEDs off
+ 198:	12 b8       	out	0x02, r1	; 2
+	DDRB  = 0x0F;
+ 19a:	84 b9       	out	0x04, r24	; 4
+	PORTB = 0x00;
+ 19c:	15 b8       	out	0x05, r1	; 5
+	DDRD = 0x00;		//Input an PortD
+ 19e:	1a b8       	out	0x0a, r1	; 10
+		//TOIE0:1
+		//TIFR0:
+		//OCF0B:0
+		//OCF0A:0
+		//TOV0:0;->Counter Overflow flag
+	TCCR0B = (1<<CS02) | (1<<CS00) ;	//Prescaler auf 1024;~32ms bis Interrupt;
+ 1a0:	85 e0       	ldi	r24, 0x05	; 5
+ 1a2:	85 bd       	out	0x25, r24	; 37
+	TIMSK0 = (1<<TOIE0);  //Overflow Interrupt aktivieren
+ 1a4:	81 e0       	ldi	r24, 0x01	; 1
+ 1a6:	80 93 6e 00 	sts	0x006E, r24
+	//TIFR0 = (1<<TOV0);
+	sei();
+ 1aa:	78 94       	sei
+		changeMuster = (PIND & (1<<PIND5));//PD5
+		if (freqDown && (interruptInterval > interruptCntMin)) interruptInterval--; 
+		if (freqUp && (interruptInterval < interruptCntMax)) interruptInterval++;
+		if (changeMuster) {
+			//zum nächsten Muster wechseln
+			blinkmuster = (blinkmuster + 1) % 4;
+ 1ac:	24 e0       	ldi	r18, 0x04	; 4
+ 1ae:	30 e0       	ldi	r19, 0x00	; 0
+		
+		
+    do {
+
+		freqDown = (PIND & (1<<PIND7));//PD7
+		freqUp = (PIND & (1<<PIND6));//PD6
+ 1b0:	99 b1       	in	r25, 0x09	; 9
+ 1b2:	90 74       	andi	r25, 0x40	; 64
+		changeMuster = (PIND & (1<<PIND5));//PD5
+ 1b4:	89 b1       	in	r24, 0x09	; 9
+ 1b6:	80 72       	andi	r24, 0x20	; 32
+		if (freqDown && (interruptInterval > interruptCntMin)) interruptInterval--; 
+ 1b8:	4f 9b       	sbis	0x09, 7	; 9
+ 1ba:	09 c0       	rjmp	.+18     	; 0x1ce <main+0x3a>
+ 1bc:	40 91 00 01 	lds	r20, 0x0100
+ 1c0:	44 30       	cpi	r20, 0x04	; 4
+ 1c2:	28 f0       	brcs	.+10     	; 0x1ce <main+0x3a>
+ 1c4:	40 91 00 01 	lds	r20, 0x0100
+ 1c8:	41 50       	subi	r20, 0x01	; 1
+ 1ca:	40 93 00 01 	sts	0x0100, r20
+		if (freqUp && (interruptInterval < interruptCntMax)) interruptInterval++;
+ 1ce:	99 23       	and	r25, r25
+ 1d0:	49 f0       	breq	.+18     	; 0x1e4 <main+0x50>
+ 1d2:	90 91 00 01 	lds	r25, 0x0100
+ 1d6:	9c 33       	cpi	r25, 0x3C	; 60
+ 1d8:	28 f4       	brcc	.+10     	; 0x1e4 <main+0x50>
+ 1da:	90 91 00 01 	lds	r25, 0x0100
+ 1de:	9f 5f       	subi	r25, 0xFF	; 255
+ 1e0:	90 93 00 01 	sts	0x0100, r25
+		if (changeMuster) {
+ 1e4:	88 23       	and	r24, r24
+ 1e6:	49 f0       	breq	.+18     	; 0x1fa <main+0x66>
+			//zum nächsten Muster wechseln
+			blinkmuster = (blinkmuster + 1) % 4;
+ 1e8:	80 91 29 01 	lds	r24, 0x0129
+ 1ec:	90 e0       	ldi	r25, 0x00	; 0
+ 1ee:	01 96       	adiw	r24, 0x01	; 1
+ 1f0:	b9 01       	movw	r22, r18
+ 1f2:	0e 94 05 01 	call	0x20a	; 0x20a <__divmodhi4>
+ 1f6:	80 93 29 01 	sts	0x0129, r24
+		}
+		abort=(PINA & (1<<PINA4));	// check for Button "ENTER"
+ 1fa:	80 b1       	in	r24, 0x00	; 0
+	} while (!abort);
+ 1fc:	84 ff       	sbrs	r24, 4
+ 1fe:	d8 cf       	rjmp	.-80     	; 0x1b0 <main+0x1c>
+		PORTA = 0x00;  // all LEDs off
+ 200:	12 b8       	out	0x02, r1	; 2
+		PORTB = 0x00;
+ 202:	15 b8       	out	0x05, r1	; 5
+	// Put a BREAKPOINT at the line below this comment
+	return 0; 
+ 204:	80 e0       	ldi	r24, 0x00	; 0
+ 206:	90 e0       	ldi	r25, 0x00	; 0
+ 208:	08 95       	ret
+
+0000020a <__divmodhi4>:
+ 20a:	97 fb       	bst	r25, 7
+ 20c:	09 2e       	mov	r0, r25
+ 20e:	07 26       	eor	r0, r23
+ 210:	0a d0       	rcall	.+20     	; 0x226 <__divmodhi4_neg1>
+ 212:	77 fd       	sbrc	r23, 7
+ 214:	04 d0       	rcall	.+8      	; 0x21e <__divmodhi4_neg2>
+ 216:	0c d0       	rcall	.+24     	; 0x230 <__udivmodhi4>
+ 218:	06 d0       	rcall	.+12     	; 0x226 <__divmodhi4_neg1>
+ 21a:	00 20       	and	r0, r0
+ 21c:	1a f4       	brpl	.+6      	; 0x224 <__divmodhi4_exit>
+
+0000021e <__divmodhi4_neg2>:
+ 21e:	70 95       	com	r23
+ 220:	61 95       	neg	r22
+ 222:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000224 <__divmodhi4_exit>:
+ 224:	08 95       	ret
+
+00000226 <__divmodhi4_neg1>:
+ 226:	f6 f7       	brtc	.-4      	; 0x224 <__divmodhi4_exit>
+ 228:	90 95       	com	r25
+ 22a:	81 95       	neg	r24
+ 22c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 22e:	08 95       	ret
+
+00000230 <__udivmodhi4>:
+ 230:	aa 1b       	sub	r26, r26
+ 232:	bb 1b       	sub	r27, r27
+ 234:	51 e1       	ldi	r21, 0x11	; 17
+ 236:	07 c0       	rjmp	.+14     	; 0x246 <__udivmodhi4_ep>
+
+00000238 <__udivmodhi4_loop>:
+ 238:	aa 1f       	adc	r26, r26
+ 23a:	bb 1f       	adc	r27, r27
+ 23c:	a6 17       	cp	r26, r22
+ 23e:	b7 07       	cpc	r27, r23
+ 240:	10 f0       	brcs	.+4      	; 0x246 <__udivmodhi4_ep>
+ 242:	a6 1b       	sub	r26, r22
+ 244:	b7 0b       	sbc	r27, r23
+
+00000246 <__udivmodhi4_ep>:
+ 246:	88 1f       	adc	r24, r24
+ 248:	99 1f       	adc	r25, r25
+ 24a:	5a 95       	dec	r21
+ 24c:	a9 f7       	brne	.-22     	; 0x238 <__udivmodhi4_loop>
+ 24e:	80 95       	com	r24
+ 250:	90 95       	com	r25
+ 252:	bc 01       	movw	r22, r24
+ 254:	cd 01       	movw	r24, r26
+ 256:	08 95       	ret
+
+00000258 <_exit>:
+ 258:	f8 94       	cli
+
+0000025a <__stop_program>:
+ 25a:	ff cf       	rjmp	.-2      	; 0x25a <__stop_program>
