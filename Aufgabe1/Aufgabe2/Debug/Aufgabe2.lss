@@ -3,27 +3,27 @@ Aufgabe2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000015a  00000000  00000000  00000074  2**1
+  0 .text         000001fc  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          00000001  00800100  00800100  000001ce  2**0
+  1 .bss          00000007  00800100  00800100  00000270  2**0
                   ALLOC
-  2 .stab         000006cc  00000000  00000000  000001d0  2**2
+  2 .stab         000006cc  00000000  00000000  00000270  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000085  00000000  00000000  0000089c  2**0
+  3 .stabstr      00000085  00000000  00000000  0000093c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_aranges 00000080  00000000  00000000  00000928  2**3
+  4 .debug_aranges 00000080  00000000  00000000  000009c8  2**3
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000003e5  00000000  00000000  000009a8  2**0
+  5 .debug_info   00000662  00000000  00000000  00000a48  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000000db  00000000  00000000  00000d8d  2**0
+  6 .debug_abbrev 00000151  00000000  00000000  000010aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000297  00000000  00000000  00000e68  2**0
+  7 .debug_line   000002d8  00000000  00000000  000011fb  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000000cc  00000000  00000000  00001100  2**2
+  8 .debug_frame  000000e0  00000000  00000000  000014d4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000013f  00000000  00000000  000011cc  2**0
+  9 .debug_str    00000238  00000000  00000000  000015b4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000000d6  00000000  00000000  0000130b  2**0
+ 10 .debug_loc    000000e3  00000000  00000000  000017ec  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -40,14 +40,14 @@ Disassembly of section .text:
   20:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
   24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
   28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
-  2c:	0c 94 82 00 	jmp	0x104	; 0x104 <__vector_11>
+  2c:	0c 94 d3 00 	jmp	0x1a6	; 0x1a6 <__vector_11>
   30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
-  34:	0c 94 8c 00 	jmp	0x118	; 0x118 <__vector_13>
+  34:	0c 94 dd 00 	jmp	0x1ba	; 0x1ba <__vector_13>
   38:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
-  3c:	0c 94 9a 00 	jmp	0x134	; 0x134 <__vector_15>
+  3c:	0c 94 eb 00 	jmp	0x1d6	; 0x1d6 <__vector_15>
   40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
   44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
-  48:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__vector_18>
+  48:	0c 94 88 00 	jmp	0x110	; 0x110 <__vector_18>
   4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
   50:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
   54:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
@@ -73,7 +73,7 @@ Disassembly of section .text:
   88:	11 e0       	ldi	r17, 0x01	; 1
   8a:	a0 e0       	ldi	r26, 0x00	; 0
   8c:	b1 e0       	ldi	r27, 0x01	; 1
-  8e:	ea e5       	ldi	r30, 0x5A	; 90
+  8e:	ec ef       	ldi	r30, 0xFC	; 252
   90:	f1 e0       	ldi	r31, 0x01	; 1
   92:	02 c0       	rjmp	.+4      	; 0x98 <__do_copy_data+0x10>
   94:	05 90       	lpm	r0, Z+
@@ -92,17 +92,17 @@ Disassembly of section .text:
   a6:	1d 92       	st	X+, r1
 
 000000a8 <.do_clear_bss_start>:
-  a8:	a1 30       	cpi	r26, 0x01	; 1
+  a8:	a7 30       	cpi	r26, 0x07	; 7
   aa:	b1 07       	cpc	r27, r17
   ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
-  ae:	0e 94 a8 00 	call	0x150	; 0x150 <main>
-  b2:	0c 94 ab 00 	jmp	0x156	; 0x156 <_exit>
+  ae:	0e 94 f9 00 	call	0x1f2	; 0x1f2 <main>
+  b2:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <_exit>
 
 000000b6 <__bad_interrupt>:
   b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000ba <zeigeBereitschaft>:
-enum mode aktiverMode = bereitschaft;
+}
 
 
 void zeigeBereitschaft() {
@@ -112,133 +112,334 @@ void zeigeBereitschaft() {
 	TCNT0 = 0x00; //Timer zurücksetzen
   bc:	16 bc       	out	0x26, r1	; 38
 	TCCR0B = (1<<CS02) | (1<<CS00) ;	//Prescaler auf 1024;~32ms bis Interrupt;
-  be:	25 e0       	ldi	r18, 0x05	; 5
-  c0:	25 bd       	out	0x25, r18	; 37
+  be:	85 e0       	ldi	r24, 0x05	; 5
+  c0:	85 bd       	out	0x25, r24	; 37
 	TIMSK0 = (1<<TOIE0);  //Overflow Interrupt aktivieren
   c2:	81 e0       	ldi	r24, 0x01	; 1
   c4:	80 93 6e 00 	sts	0x006E, r24
-	TCCR1A = 0x00;
-  c8:	10 92 80 00 	sts	0x0080, r1
-	TCCR1B = (1<<WGM12);
-  cc:	e1 e8       	ldi	r30, 0x81	; 129
-  ce:	f0 e0       	ldi	r31, 0x00	; 0
-  d0:	88 e0       	ldi	r24, 0x08	; 8
-  d2:	80 83       	st	Z, r24
-	
-	OCR1A = 39063;//(8000000 / 1024)*5
-  d4:	87 e9       	ldi	r24, 0x97	; 151
-  d6:	98 e9       	ldi	r25, 0x98	; 152
-  d8:	90 93 89 00 	sts	0x0089, r25
-  dc:	80 93 88 00 	sts	0x0088, r24
-	TCCR1B = (1<<CS02) | (1<<CS00);
-  e0:	20 83       	st	Z, r18
-	//TIMSK1 = (1<<TOIE1);
-	TIMSK1 = (1<<OCIE1A);
-  e2:	82 e0       	ldi	r24, 0x02	; 2
-  e4:	80 93 6f 00 	sts	0x006F, r24
-	//Interrupts aktivieren
 	sei();
-  e8:	78 94       	sei
+  c8:	78 94       	sei
+	
 }
-  ea:	08 95       	ret
+  ca:	08 95       	ret
 
-000000ec <startWaitingTimer>:
+000000cc <startWaitingTimer>:
 
 void startWaitingTimer() {
+	cli();
+  cc:	f8 94       	cli
+	TCCR1A = 0x00;
+  ce:	10 92 80 00 	sts	0x0080, r1
+	TCCR1B = (1<<WGM12);//OCR1A
+  d2:	e1 e8       	ldi	r30, 0x81	; 129
+  d4:	f0 e0       	ldi	r31, 0x00	; 0
+  d6:	88 e0       	ldi	r24, 0x08	; 8
+  d8:	80 83       	st	Z, r24
+	TCNT1 = (uint16_t) (0x0000);
+  da:	10 92 85 00 	sts	0x0085, r1
+  de:	10 92 84 00 	sts	0x0084, r1
+	OCR1A = 39063;//(8000000 / 1024)*5   genau 5 Sekunden
+  e2:	87 e9       	ldi	r24, 0x97	; 151
+  e4:	98 e9       	ldi	r25, 0x98	; 152
+  e6:	90 93 89 00 	sts	0x0089, r25
+  ea:	80 93 88 00 	sts	0x0088, r24
+	TCCR1B = (1<<CS02) | (1<<CS00);	//Prescaler auf 1024
+  ee:	85 e0       	ldi	r24, 0x05	; 5
+  f0:	80 83       	st	Z, r24
+	TIMSK1 = (1<<OCIE1A);
+  f2:	82 e0       	ldi	r24, 0x02	; 2
+  f4:	80 93 6f 00 	sts	0x006F, r24
+	//Interrupts aktivieren
+	sei();
+  f8:	78 94       	sei
 	
 }
-  ec:	08 95       	ret
+  fa:	08 95       	ret
 
-000000ee <stopWaitingTimer>:
+000000fc <startLEDBereitschaft>:
+
+void startLEDBereitschaft() {
+	cli();
+  fc:	f8 94       	cli
+	TCNT0 = 0x00; //Timer zurücksetzen
+  fe:	16 bc       	out	0x26, r1	; 38
+	TCCR0B = (1<<CS02) | (1<<CS00) ;	//Prescaler auf 1024;~32ms bis Interrupt;
+ 100:	85 e0       	ldi	r24, 0x05	; 5
+ 102:	85 bd       	out	0x25, r24	; 37
+	TIMSK0 = (1<<TOIE0);  //Overflow Interrupt aktivieren
+ 104:	81 e0       	ldi	r24, 0x01	; 1
+ 106:	80 93 6e 00 	sts	0x006E, r24
+	sei();
+ 10a:	78 94       	sei
+}
+ 10c:	08 95       	ret
+
+0000010e <stopWaitingTimer>:
 
 void stopWaitingTimer() {
 	
 }
-  ee:	08 95       	ret
+ 10e:	08 95       	ret
 
-000000f0 <__vector_18>:
+00000110 <__vector_18>:
 
-ISR(TIMER0_OVF_vect) {
-  f0:	1f 92       	push	r1
-  f2:	0f 92       	push	r0
-  f4:	0f b6       	in	r0, 0x3f	; 63
-  f6:	0f 92       	push	r0
-  f8:	11 24       	eor	r1, r1
-	
-}
-  fa:	0f 90       	pop	r0
-  fc:	0f be       	out	0x3f, r0	; 63
-  fe:	0f 90       	pop	r0
- 100:	1f 90       	pop	r1
- 102:	18 95       	reti
-
-00000104 <__vector_11>:
 //Timer für die Anzeige der LEDs
+ISR(TIMER0_OVF_vect) {
+ 110:	1f 92       	push	r1
+ 112:	0f 92       	push	r0
+ 114:	0f b6       	in	r0, 0x3f	; 63
+ 116:	0f 92       	push	r0
+ 118:	11 24       	eor	r1, r1
+ 11a:	8f 93       	push	r24
+	if (aktiverMode==bereitschaft) {	//Wenn im bereitschaftsmodus, dann alle ~100 ms die LED wechseln
+ 11c:	80 91 06 01 	lds	r24, 0x0106
+ 120:	88 23       	and	r24, r24
+ 122:	d9 f5       	brne	.+118    	; 0x19a <__vector_18+0x8a>
+		if (intervalCounter==3) {
+ 124:	80 91 00 01 	lds	r24, 0x0100
+ 128:	83 30       	cpi	r24, 0x03	; 3
+ 12a:	b9 f5       	brne	.+110    	; 0x19a <__vector_18+0x8a>
+			intervalCounter = 0;
+ 12c:	10 92 00 01 	sts	0x0100, r1
+			switch (readyTurn) {
+ 130:	80 91 05 01 	lds	r24, 0x0105
+ 134:	81 30       	cpi	r24, 0x01	; 1
+ 136:	91 f0       	breq	.+36     	; 0x15c <__vector_18+0x4c>
+ 138:	81 30       	cpi	r24, 0x01	; 1
+ 13a:	28 f0       	brcs	.+10     	; 0x146 <__vector_18+0x36>
+ 13c:	82 30       	cpi	r24, 0x02	; 2
+ 13e:	c9 f0       	breq	.+50     	; 0x172 <__vector_18+0x62>
+ 140:	83 30       	cpi	r24, 0x03	; 3
+ 142:	59 f5       	brne	.+86     	; 0x19a <__vector_18+0x8a>
+ 144:	21 c0       	rjmp	.+66     	; 0x188 <__vector_18+0x78>
+				case left:
+					readyTurn = up;
+ 146:	81 e0       	ldi	r24, 0x01	; 1
+ 148:	80 93 05 01 	sts	0x0105, r24
+uint8_t ledOben = (1<<PORTB5);
+uint8_t ledUnten = (1<<PORTB7);
+*/
+
+inline void LEDOnLinks() {
+	PORTA |= (1<<PORTA6);
+ 14c:	16 9a       	sbi	0x02, 6	; 2
+inline void LEDOnRechts(){
+	 PORTC |= (1<<PORTC6);
+}	 
+
+inline void LEDOffRechts(){
+	PORTC |= (0<<PORTC6);
+ 14e:	88 b1       	in	r24, 0x08	; 8
+ 150:	88 b9       	out	0x08, r24	; 8
+inline void LEDOnOben() {
+	PORTB |= (1<<PORTB5);
+}
+
+inline void LEDOffOben() {
+	PORTB |= (0<<PORTB5);
+ 152:	85 b1       	in	r24, 0x05	; 5
+ 154:	85 b9       	out	0x05, r24	; 5
+inline void LEDOnUnten() {
+	PORTB |= (1<<PORTB7);
+}
+
+inline void LEDOffUnten() {
+	PORTB |= (0<<PORTB7);
+ 156:	85 b1       	in	r24, 0x05	; 5
+ 158:	85 b9       	out	0x05, r24	; 5
+ 15a:	1f c0       	rjmp	.+62     	; 0x19a <__vector_18+0x8a>
+				case left:
+					readyTurn = up;
+					LEDLeftOnly();
+				break;
+				case up:
+					readyTurn = right;
+ 15c:	82 e0       	ldi	r24, 0x02	; 2
+ 15e:	80 93 05 01 	sts	0x0105, r24
+inline void LEDOnLinks() {
+	PORTA |= (1<<PORTA6);
+}
+
+inline void LEDOffLinks() {
+	PORTA |= (0<<PORTA6);
+ 162:	82 b1       	in	r24, 0x02	; 2
+ 164:	82 b9       	out	0x02, r24	; 2
+inline void LEDOnRechts(){
+	 PORTC |= (1<<PORTC6);
+}	 
+
+inline void LEDOffRechts(){
+	PORTC |= (0<<PORTC6);
+ 166:	88 b1       	in	r24, 0x08	; 8
+ 168:	88 b9       	out	0x08, r24	; 8
+}
+
+inline void LEDOnOben() {
+	PORTB |= (1<<PORTB5);
+ 16a:	2d 9a       	sbi	0x05, 5	; 5
+inline void LEDOnUnten() {
+	PORTB |= (1<<PORTB7);
+}
+
+inline void LEDOffUnten() {
+	PORTB |= (0<<PORTB7);
+ 16c:	85 b1       	in	r24, 0x05	; 5
+ 16e:	85 b9       	out	0x05, r24	; 5
+ 170:	14 c0       	rjmp	.+40     	; 0x19a <__vector_18+0x8a>
+				case up:
+					readyTurn = right;
+					LEDObenOnly();
+				break;
+				case right:
+					readyTurn = down;
+ 172:	83 e0       	ldi	r24, 0x03	; 3
+ 174:	80 93 05 01 	sts	0x0105, r24
+inline void LEDOnLinks() {
+	PORTA |= (1<<PORTA6);
+}
+
+inline void LEDOffLinks() {
+	PORTA |= (0<<PORTA6);
+ 178:	82 b1       	in	r24, 0x02	; 2
+ 17a:	82 b9       	out	0x02, r24	; 2
+}
+
+inline void LEDOnRechts(){
+	 PORTC |= (1<<PORTC6);
+ 17c:	46 9a       	sbi	0x08, 6	; 8
+inline void LEDOnOben() {
+	PORTB |= (1<<PORTB5);
+}
+
+inline void LEDOffOben() {
+	PORTB |= (0<<PORTB5);
+ 17e:	85 b1       	in	r24, 0x05	; 5
+ 180:	85 b9       	out	0x05, r24	; 5
+inline void LEDOnUnten() {
+	PORTB |= (1<<PORTB7);
+}
+
+inline void LEDOffUnten() {
+	PORTB |= (0<<PORTB7);
+ 182:	85 b1       	in	r24, 0x05	; 5
+ 184:	85 b9       	out	0x05, r24	; 5
+ 186:	09 c0       	rjmp	.+18     	; 0x19a <__vector_18+0x8a>
+				case right:
+					readyTurn = down;
+					LEDRechtsOnly();
+				break;
+				case down:
+					readyTurn = left;
+ 188:	10 92 05 01 	sts	0x0105, r1
+inline void LEDOnLinks() {
+	PORTA |= (1<<PORTA6);
+}
+
+inline void LEDOffLinks() {
+	PORTA |= (0<<PORTA6);
+ 18c:	82 b1       	in	r24, 0x02	; 2
+ 18e:	82 b9       	out	0x02, r24	; 2
+inline void LEDOnRechts(){
+	 PORTC |= (1<<PORTC6);
+}	 
+
+inline void LEDOffRechts(){
+	PORTC |= (0<<PORTC6);
+ 190:	88 b1       	in	r24, 0x08	; 8
+ 192:	88 b9       	out	0x08, r24	; 8
+inline void LEDOnOben() {
+	PORTB |= (1<<PORTB5);
+}
+
+inline void LEDOffOben() {
+	PORTB |= (0<<PORTB5);
+ 194:	85 b1       	in	r24, 0x05	; 5
+ 196:	85 b9       	out	0x05, r24	; 5
+}
+
+inline void LEDOnUnten() {
+	PORTB |= (1<<PORTB7);
+ 198:	2f 9a       	sbi	0x05, 7	; 5
+					LEDUntenOnly();
+				break;
+			}//switch
+		}//intervalCounter==3
+	}//aktiverMode==bereitschaft
+}
+ 19a:	8f 91       	pop	r24
+ 19c:	0f 90       	pop	r0
+ 19e:	0f be       	out	0x3f, r0	; 63
+ 1a0:	0f 90       	pop	r0
+ 1a2:	1f 90       	pop	r1
+ 1a4:	18 95       	reti
+
+000001a6 <__vector_11>:
+//Timer für Tastendrücke
 ISR(TIMER2_OVF_vect) {
- 104:	1f 92       	push	r1
- 106:	0f 92       	push	r0
- 108:	0f b6       	in	r0, 0x3f	; 63
- 10a:	0f 92       	push	r0
- 10c:	11 24       	eor	r1, r1
+ 1a6:	1f 92       	push	r1
+ 1a8:	0f 92       	push	r0
+ 1aa:	0f b6       	in	r0, 0x3f	; 63
+ 1ac:	0f 92       	push	r0
+ 1ae:	11 24       	eor	r1, r1
 	
 }
- 10e:	0f 90       	pop	r0
- 110:	0f be       	out	0x3f, r0	; 63
- 112:	0f 90       	pop	r0
- 114:	1f 90       	pop	r1
- 116:	18 95       	reti
+ 1b0:	0f 90       	pop	r0
+ 1b2:	0f be       	out	0x3f, r0	; 63
+ 1b4:	0f 90       	pop	r0
+ 1b6:	1f 90       	pop	r1
+ 1b8:	18 95       	reti
 
-00000118 <__vector_13>:
+000001ba <__vector_13>:
 
 ISR (TIMER1_COMPA_vect) {
- 118:	1f 92       	push	r1
- 11a:	0f 92       	push	r0
- 11c:	0f b6       	in	r0, 0x3f	; 63
- 11e:	0f 92       	push	r0
- 120:	11 24       	eor	r1, r1
- 122:	8f 93       	push	r24
+ 1ba:	1f 92       	push	r1
+ 1bc:	0f 92       	push	r0
+ 1be:	0f b6       	in	r0, 0x3f	; 63
+ 1c0:	0f 92       	push	r0
+ 1c2:	11 24       	eor	r1, r1
+ 1c4:	8f 93       	push	r24
 	PORTD = 0xFF;
- 124:	8f ef       	ldi	r24, 0xFF	; 255
- 126:	8b b9       	out	0x0b, r24	; 11
+ 1c6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1c8:	8b b9       	out	0x0b, r24	; 11
 }
- 128:	8f 91       	pop	r24
- 12a:	0f 90       	pop	r0
- 12c:	0f be       	out	0x3f, r0	; 63
- 12e:	0f 90       	pop	r0
- 130:	1f 90       	pop	r1
- 132:	18 95       	reti
+ 1ca:	8f 91       	pop	r24
+ 1cc:	0f 90       	pop	r0
+ 1ce:	0f be       	out	0x3f, r0	; 63
+ 1d0:	0f 90       	pop	r0
+ 1d2:	1f 90       	pop	r1
+ 1d4:	18 95       	reti
 
-00000134 <__vector_15>:
+000001d6 <__vector_15>:
 
 ISR(TIMER1_OVF_vect) {
- 134:	1f 92       	push	r1
- 136:	0f 92       	push	r0
- 138:	0f b6       	in	r0, 0x3f	; 63
- 13a:	0f 92       	push	r0
- 13c:	11 24       	eor	r1, r1
- 13e:	8f 93       	push	r24
+ 1d6:	1f 92       	push	r1
+ 1d8:	0f 92       	push	r0
+ 1da:	0f b6       	in	r0, 0x3f	; 63
+ 1dc:	0f 92       	push	r0
+ 1de:	11 24       	eor	r1, r1
+ 1e0:	8f 93       	push	r24
 	PORTD = 0x0F;
- 140:	8f e0       	ldi	r24, 0x0F	; 15
- 142:	8b b9       	out	0x0b, r24	; 11
+ 1e2:	8f e0       	ldi	r24, 0x0F	; 15
+ 1e4:	8b b9       	out	0x0b, r24	; 11
 }
- 144:	8f 91       	pop	r24
- 146:	0f 90       	pop	r0
- 148:	0f be       	out	0x3f, r0	; 63
- 14a:	0f 90       	pop	r0
- 14c:	1f 90       	pop	r1
- 14e:	18 95       	reti
+ 1e6:	8f 91       	pop	r24
+ 1e8:	0f 90       	pop	r0
+ 1ea:	0f be       	out	0x3f, r0	; 63
+ 1ec:	0f 90       	pop	r0
+ 1ee:	1f 90       	pop	r1
+ 1f0:	18 95       	reti
 
-00000150 <main>:
+000001f2 <main>:
 
 int main(void)
 {
 	//initialize all variables
 	zeigeBereitschaft();
- 150:	0e 94 5d 00 	call	0xba	; 0xba <zeigeBereitschaft>
- 154:	ff cf       	rjmp	.-2      	; 0x154 <main+0x4>
+ 1f2:	0e 94 5d 00 	call	0xba	; 0xba <zeigeBereitschaft>
+ 1f6:	ff cf       	rjmp	.-2      	; 0x1f6 <main+0x4>
 
-00000156 <_exit>:
- 156:	f8 94       	cli
+000001f8 <_exit>:
+ 1f8:	f8 94       	cli
 
-00000158 <__stop_program>:
- 158:	ff cf       	rjmp	.-2      	; 0x158 <__stop_program>
+000001fa <__stop_program>:
+ 1fa:	ff cf       	rjmp	.-2      	; 0x1fa <__stop_program>
